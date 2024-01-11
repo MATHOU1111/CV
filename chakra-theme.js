@@ -11,6 +11,7 @@ const theme = extendTheme({
             body: {
                 color: props.colorMode === 'dark' ? 'white' : 'black',
                 bg: props.colorMode === 'dark' ? 'gray.800' : 'gray.400',
+
             },
         }),
     },

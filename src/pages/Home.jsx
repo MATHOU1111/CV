@@ -13,7 +13,6 @@ const Home = () => {
                     <Routes>
                         <Route path="" element={<Timeline />}/>
                         <Route path="contact" element={<Contact />}/>
-
                     </Routes>
                 <Footer />
             </div>

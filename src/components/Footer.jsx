@@ -1,11 +1,14 @@
 import React from 'react';
+import {Divider, Image} from "@chakra-ui/react";
+import chieng from './../../public/pngwing.com.png'
 
 function Footer() {
 	return (
 		<div className="py-5 text-center">
 				<div className="container max-w-screen-lg mx-auto">
 					<div>
-						<div className="flex flex-wrap justify-center gap-2">
+						<Divider />
+						<div className="flex flex-wrap justify-center gap-2 p-2">
 							<a 
 								href="https://www.linkedin.com/in/mathisdumage/"
 								className="bg-stone-400 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded-full">
@@ -43,6 +46,11 @@ function Footer() {
 								</svg>
 							</a>
 						</div>
+						<Image
+							className="w-32"
+							src={chieng}
+							boxSize={'100px'}
+						/>
 					</div>
 				</div>
 		</div>

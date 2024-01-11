@@ -1,30 +1,52 @@
 import React from 'react';
+import { Link, Box, Text, Badge,Image, useColorModeValue } from '@chakra-ui/react';
 
-function projects({ title, imgUrl, stack, link }) {
+function ProjectItem({ title,imageUrl, stack, link, id }) {
+    const borderColor = useColorModeValue('stone.900', 'stone.200');
+
     return (
-        <a
+        <Link
+            key={id}
             href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-2 border-stone-900 dark:border-white rounded-md overflow-hidden"
+            isExternal
+            borderRadius="md"
+            overflow="hidden"
+            border="2px"
+            borderColor={borderColor}
+            _hover={{ textDecoration: 'none' }}
         >
-            <img
-                src={imgUrl}
-                alt="portfolio"
-                className="w-full h-36 md:h-48 object-cover cursor-pointer"
-            />
-            <div className="w-full p-4">
-                <h3 className="text-lg md:text-xl dark:text-white mb-2 md:mb-3 font-semibold ">{title}</h3>
-                <p className="flex flex-wrap gap-2 flex-row items-center justify-start text-xs md:text-sm dark:text-white ">
-                    {stack.map(item => (
-                        <span className="inline-block px-2 py-1 font-semibold border-2 border-stone-900 dark:border-white rounded-md">
-                     {item}
-                  </span>
+            {imageUrl && (
+                <Image
+                    p={'4'}
+                    src={imageUrl}
+                    alt={`Image of ${title}`}
+                    objectFit="cover"
+                    width="100%"
+                    height={{ base: "200px", md: "250px" }}
+                />
+            )}
+            <Box p="4">
+                <Text fontSize={{ base: "lg", md: "xl" }} mb={{ base: 2, md: 3 }} fontWeight="semibold">
+                    {title}
+                </Text>
+                <Box display="flex" flexWrap="wrap" gap="2" alignItems="center">
+                    {stack.map((item, index) => (
+                        <Badge
+                            key={index}
+                            px="2"
+                            py="1"
+                            fontWeight="semibold"
+                            borderRadius="md"
+                            border="2px"
+                            borderColor={borderColor}
+                        >
+                            {item}
+                        </Badge>
                     ))}
-                </p>
-            </div>
-        </a>
-    )
+                </Box>
+            </Box>
+        </Link>
+    );
 }
 
-export default PortfolioItem;
+export default ProjectItem;
