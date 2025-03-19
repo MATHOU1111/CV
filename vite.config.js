@@ -8,5 +8,7 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-  },
+    optimizeDeps: {
+      include: ["@chakra-ui/react"]
+    }  },
 })
